@@ -1,9 +1,6 @@
 package com.realdolmen.registration.domain;
 
-import com.realdolmen.registration.converter.AccountNumber;
-import com.realdolmen.registration.validator.CorrectAccountNumber;
 import com.realdolmen.registration.validator.Email;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -26,7 +23,8 @@ public class User implements Serializable {
     private String lastName;
 
     @NotNull
-    private String dateOfBirth;
+    @Past
+    private Date dateOfBirth;
 
     @NotNull
     @Size(min = 6, max=100)
@@ -42,7 +40,7 @@ public class User implements Serializable {
     protected User() {
     }
 
-    public User(String lastName, String firstName, String dateOfBirth, String email, String accountNumber) {
+    public User(String lastName, String firstName, Date dateOfBirth, String email, String accountNumber) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirth = dateOfBirth;
@@ -62,7 +60,7 @@ public class User implements Serializable {
         return lastName;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -78,7 +76,7 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth){
         this.dateOfBirth = dateOfBirth;
     }
 
