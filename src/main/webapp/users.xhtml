@@ -4,34 +4,35 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core">
-
-    <h:head>
-        <title>User details</title>
-    </h:head>
-
-    <h:body>
-        <h1>User details</h1>
-        <h:form>
-            <h:dataTable value="#{userRepository.findAll()}" var="user">
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    <h:outputText value="#{user.id}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">First name</f:facet>
-                    <h:outputText value="#{user.firstName}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Last name</f:facet>
-                    <h:outputText value="#{user.lastName}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Tools</f:facet>
-                    <h:commandLink value="Remove" action="#{userRepository.remove(user)}"/>
-                </h:column>
-            </h:dataTable>
-        </h:form>
-    </h:body>
-
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="template.xhtml">
+        <ui:define name="pageTitle">User details</ui:define>
+        <ui:define name="pageContent">
+            <div class="row">
+                <div class="span4">
+                    <h:form>
+                        <h:dataTable value="#{userRepository.findAll()}" var="user">
+                            <h:column>
+                                <f:facet name="header">Id</f:facet>
+                                <h:outputText value="#{user.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">First name</f:facet>
+                                <h:outputText value="#{user.firstName}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Last name</f:facet>
+                                <h:outputText value="#{user.lastName}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Tools</f:facet>
+                                <h:commandLink value="Remove" action="#{userRepository.remove(user)}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
 </html>
