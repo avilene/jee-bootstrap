@@ -19,21 +19,21 @@
                                 <h:outputText value="#{user.id}"/>
                             </h:column>
                             <h:column>
-                                <f:facet name="header">First name</f:facet>
+                                <f:facet name="header">#{msgs['form.firstName']}</f:facet>
                                 <h:outputText value="#{user.firstName}"/>
                             </h:column>
                             <h:column>
-                                <f:facet name="header">Last name</f:facet>
+                                <f:facet name="header">#{msgs['form.lastName']}</f:facet>
                                 <h:outputText value="#{user.lastName}"/>
                             </h:column>
                             <h:column>
-                                <f:facet name="header">Date</f:facet>
+                                <f:facet name="header">#{msgs['form.dateOfBirth']}</f:facet>
                                 <h:outputText value="#{user.dateOfBirth}">
                                     <f:convertDateTime pattern="dd MMMM yyyy"/>
                                 </h:outputText>
                             </h:column>
                             <h:column>
-                                <f:facet name="header">E-mail</f:facet>
+                                <f:facet name="header">#{msgs['form.email']}</f:facet>
                                 <h:outputText value="#{user.email}"/>
                             </h:column>
                             <h:column>

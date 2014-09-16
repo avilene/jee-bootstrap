@@ -27,6 +27,7 @@ public class AccountNumberConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object o) {
-        return o.toString();
+        AccountNumber acc = (AccountNumber) o;
+        return acc.toString();
     }
 }

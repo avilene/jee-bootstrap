@@ -1,16 +1,18 @@
 package com.realdolmen.registration.domain;
 
 import com.realdolmen.registration.converter.AccountNumber;
+import com.realdolmen.registration.validator.CorrectAccountNumber;
 import com.realdolmen.registration.validator.Email;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -28,7 +30,11 @@ public class User {
 
     @NotNull
     @Size(min = 6, max=100)
+    @Email
     private String email;
+
+    @NotNull
+    private String accountNumber;
 
     /**
      * Used by JPA.
@@ -36,11 +42,12 @@ public class User {
     protected User() {
     }
 
-    public User(String lastName, String firstName, String dateOfBirth, String email) {
+    public User(String lastName, String firstName, String dateOfBirth, String email, String accountNumber) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
+        this.accountNumber = accountNumber;
     }
 
     public Integer getId() {
@@ -77,5 +84,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

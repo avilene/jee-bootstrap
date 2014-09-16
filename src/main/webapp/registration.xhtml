@@ -25,7 +25,7 @@
                             <td><h:message for="lastName" style="color: red;"/></td>
                         </tr>
                         <tr>
-                            <td><h:outputLabel for="birthday" value="#{msgs['form.dateOfBirth']} (mm-dd-yyyy)" /></td>
+                            <td><h:outputLabel for="birthday" value="#{msgs['form.dateOfBirth']} (yyyy-mm-dd)" /></td>
                             <td><h:inputText id="birthday" value="#{registrationBean.user.dateOfBirth}"/></td>
                             <td><h:message for="birthday" style="color: red;"/></td>
                         </tr>
@@ -33,6 +33,11 @@
                             <td><h:outputLabel for="email" value="#{msgs['form.email']}" /></td>
                             <td><h:inputText id="email" value="#{registrationBean.user.email}"/></td>
                             <td><h:message for="email" style="color: red;"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputLabel for="accountNumber" value="#{msgs['form.accountNumber']}" /></td>
+                            <td><h:inputText id="accountNumber" value="#{registrationBean.user.accountNumber}"/></td>
+                            <td><h:message for="accountNumber" style="color: red;"/></td>
                         </tr>
                         <tr><td><h:commandButton action="#{registrationBean.registerUser()}" value="Register me!"/></td>
                         <td><h:outputLink value=".">

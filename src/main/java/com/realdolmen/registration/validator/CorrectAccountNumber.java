@@ -9,9 +9,9 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = EmailValidator.class)
-public @interface Email {
-    String message() default "{com.realdolmen.registration.validator.Email.message}";
+@Constraint(validatedBy = AccountNumberValidator.class)
+public @interface CorrectAccountNumber {
+    String message() default "{com.realdolmen.registration.validator.AccountNumber.message}";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
