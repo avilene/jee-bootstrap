@@ -28,6 +28,13 @@ public class UserRepository {
         return entityManager.createQuery("select u from User u order by u.lastName", User.class).getResultList();
     }
 
+    public User registerUser(User u){
+        entityManager.persist(u);
+        entityManager.flush();
+        entityManager.clear();
+        return u;
+    }
+
     public void remove(User user) {
         entityManager.remove(entityManager.merge(user));
     }
