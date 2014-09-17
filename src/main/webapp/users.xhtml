@@ -8,6 +8,10 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:rd="http://www.realdolmen.com/tags">
     <ui:composition template="template.xhtml">
+        <ui:define name="menuItems">
+            <li class="active"><a href=".">User details</a></li>
+            <li><a href="registration.faces">Register a new user</a></li>
+        </ui:define>
         <ui:define name="pageTitle">User details</ui:define>
         <ui:define name="pageContent">
             <div class="row">

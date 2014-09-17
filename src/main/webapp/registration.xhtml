@@ -8,47 +8,56 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:rd="http://www.realdolmen.com/tags">
     <ui:composition template="template.xhtml">
-    <ui:define name="pageTitle">Register a new user</ui:define>
-    <ui:define name="pageContent">
-        <div class="row">
-            <div class="col-lg-12">
-                <h:form role="form">
-                    <div class="form-group">
-                        <h:outputLabel for="firstName" value="#{msgs['form.firstName']}" />
-                        <h:inputText id="firstName" value="#{registrationBean.user.firstName}" styleClass="form-control"/>
-                        <h:message for="firstName" styleClass="text-danger"/>
-                    </div>
-                    <div class="form-group">
-                            <h:outputLabel for="lastName" value="#{msgs['form.lastName']}" />
-                            <h:inputText id="lastName" value="#{registrationBean.user.lastName}" styleClass="form-control"/>
+        <ui:define name="menuItems">
+            <li><a href=".">User details</a></li>
+            <li class="active"><a href="registration.faces">Register a new user</a></li>
+        </ui:define>
+        <ui:define name="pageTitle">Register a new user</ui:define>
+        <ui:define name="pageContent">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h:form role="form">
+                        <div class="form-group">
+                            <h:outputLabel for="firstName" value="#{msgs['form.firstName']}"/>
+                            <h:inputText id="firstName" value="#{registrationBean.user.firstName}"
+                                         styleClass="form-control"/>
+                            <h:message for="firstName" styleClass="text-danger"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="lastName" value="#{msgs['form.lastName']}"/>
+                            <h:inputText id="lastName" value="#{registrationBean.user.lastName}"
+                                         styleClass="form-control"/>
                             <h:message for="lastName" styleClass="text-danger"/>
-                    </div>
-                    <div class="form-group">
-                            <h:outputLabel for="birthday" value="#{msgs['form.dateOfBirth']} (yyyy-mm-dd)" />
-                            <h:inputText id="birthday" value="#{registrationBean.user.dateOfBirth}" styleClass="form-control">
-                                <f:convertDateTime pattern="yyyy-MM-dd" />
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="birthday" value="#{msgs['form.dateOfBirth']} (yyyy-mm-dd)"/>
+                            <h:inputText id="birthday" value="#{registrationBean.user.dateOfBirth}"
+                                         styleClass="form-control">
+                                <f:convertDateTime pattern="yyyy-MM-dd"/>
                             </h:inputText>
                             <h:message for="birthday" styleClass="text-danger"/>
-                    </div>
-                    <div class="form-group">
-                            <h:outputLabel for="email" value="#{msgs['form.email']}" />
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="email" value="#{msgs['form.email']}"/>
                             <h:inputText id="email" value="#{registrationBean.user.email}" styleClass="form-control"/>
                             <h:message for="email" styleClass="text-danger"/>
-                    </div>
-                    <div class="form-group">
-                            <h:outputLabel for="accountNumber" value="#{msgs['form.accountNumber']}" />
-                            <h:inputText id="accountNumber" value="#{registrationBean.user.accountNumber}" styleClass="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="accountNumber" value="#{msgs['form.accountNumber']}"/>
+                            <h:inputText id="accountNumber" value="#{registrationBean.user.accountNumber}"
+                                         styleClass="form-control"/>
                             <h:message for="accountNumber" styleClass="text-danger"/>
-                    </div>
-                    <div class="form-group">
-                        <h:commandButton action="#{registrationBean.registerUser()}" value="Register me!" styleClass="btn btn-default"/>
-                        <h:outputLink value="." styleClass="btn btn-danger">
-                            <h:outputText value="Back to users"/>
-                        </h:outputLink>
-                    </div>
-                </h:form>
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton action="#{registrationBean.registerUser()}" value="Register me!"
+                                             styleClass="btn btn-default"/>
+                            <h:outputLink value="." styleClass="btn btn-danger">
+                                <h:outputText value="Back to users"/>
+                            </h:outputLink>
+                        </div>
+                    </h:form>
+                </div>
             </div>
-        </div>
-    </ui:define>
+        </ui:define>
     </ui:composition>
 </html>
