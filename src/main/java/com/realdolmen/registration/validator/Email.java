@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = EmailValidator.class)
 public @interface Email {
     String message() default "{com.realdolmen.registration.validator.Email.message}";
-    Class<?>[] groups() default {};
-    Class<? extends Payload>[] payload() default {};
+    Class<Email>[] groups() default {};
+    Class<Payload>[] payload() default {};
 }

@@ -1,5 +1,7 @@
 package com.realdolmen.registration.validator;
 
+import com.realdolmen.registration.converter.AccountNumber;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.ElementType;
@@ -12,6 +14,6 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = AccountNumberValidator.class)
 public @interface CorrectAccountNumber {
     String message() default "{com.realdolmen.registration.validator.AccountNumber.message}";
-    Class<?>[] groups() default {};
-    Class<? extends Payload>[] payload() default {};
+    Class<AccountNumber>[] groups() default {};
+    Class<Payload>[] payload() default {};
 }

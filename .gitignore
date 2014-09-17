@@ -1,3 +1,6 @@
 .idea
 registration.iml
 target
+sonar-project.properties
+runsonar.bat
+.sonar

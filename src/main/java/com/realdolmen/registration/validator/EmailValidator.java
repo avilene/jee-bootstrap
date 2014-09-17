@@ -8,16 +8,16 @@ import javax.validation.ConstraintValidatorContext;
 
 public class EmailValidator implements ConstraintValidator<Email, String>    {
 
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmailValidator.class);
     private static final String EMAIL_END = "@realdolmen.com";
     @Override
     public void initialize(Email email) {
-
+        // Empty because it is mandatory to implement
     }
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        logger.info("isValid: " + s);
-        return s != null && !s.trim().equals("") && s.endsWith(EMAIL_END) && !s.startsWith(EMAIL_END);
+        LOGGER.info("isValid: " + s);
+        return !"".equals(s) && s.endsWith(EMAIL_END) && !s.startsWith(EMAIL_END);
     }
 }

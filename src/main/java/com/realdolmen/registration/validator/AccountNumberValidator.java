@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 public class AccountNumberValidator implements ConstraintValidator<CorrectAccountNumber, String> {
     @Override
     public void initialize(CorrectAccountNumber accountNumber) {
-
+        // Do nothing because this is mandatory
     }
 
     @Override

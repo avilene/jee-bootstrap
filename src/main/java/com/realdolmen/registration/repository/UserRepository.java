@@ -4,7 +4,6 @@ import com.realdolmen.registration.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -14,7 +13,7 @@ import java.util.Collection;
 @Stateless
 @Named
 public class UserRepository {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserRepository.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -24,7 +23,7 @@ public class UserRepository {
     }
 
     public Collection<User> findAll() {
-        logger.info("Find all users");
+        LOGGER.info("Find all users");
         return entityManager.createQuery("select u from User u order by u.lastName", User.class).getResultList();
     }
 

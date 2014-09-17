@@ -23,7 +23,7 @@ public class ColoredValueComponent extends UIComponentBase {
         if(value < 0){
             color = "red";
         }else{
-            color = "black";
+            color = "blue";
         }
         writer.writeAttribute("style", "color: " + color + ";", null);
         writer.writeText(value + "",null);
